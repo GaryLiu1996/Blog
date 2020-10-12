@@ -4,5 +4,5 @@
 
     |date|event|
     |:-----:|:-----:|
-    |12|`Blog Project Start` `Language select` `framework select`|
-    |13|`Go Lakers!` `Language select` `framework select` `start to learn gin`|
+    |11|`Blog Project Start` `Language select` `framework select`|
+    |12|`Go Lakers!` `Language select` `framework select` `start to learn gin`|
