@@ -1,0 +1,3 @@
+cypress
+https://www.cnblogs.com/fnng/p/10056217.html
+./node_modules/.bin/cypress open
