@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-model="http://www.w3.org/1999/xhtml"
+      xmlns:v-on="http://www.w3.org/1999/xhtml">>
+<head>
+    <title>Vue.js E.X.</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div id="todo-list-ex">
+    <form v-on:submit.prevent="addNewTodo">
+        <label for="new-todo">Add a todo</label>
+        <input
+                v-model:="newTodoText"
+                id="new-todo"
+                placeholder="input the todo text"
+        >
+        <button>
+            Add
+        </button>
+    </form>
+    <ul>
+        <li
+                is="todo-item"
+                v-for="(todo, index) in todos"
+                v-bind:key="todo.id"
+                v-bind:title="todo.title"
+                v-on:remove="todos.splice(index, 1)"
+        ></li>
+    </ul>
+</div>
+
+<script>
+    import Vue from 'vue'
+
+    Vue.component('todo-item', {//转义符的作用是什么？
+        template: '\
+        <li>\
+        {{title}}\
+        <button v-on:click="$emit(\'remove\')">Remove</button>\
+        </li>\
+        ',
+        props: ['title']//
+    })
+    new Vue({
+        el: '#todo-list-ex',
+        data: {//
+            newTodoText: '',
+            todos: [
+                {
+                    id: 1,
+                    title: 'cyberpunk 2077'
+                },
+                {
+                    id: 2,
+                    title: 'GTA 5'
+                },
+                {
+                    id: 3,
+                    title: 'CS:GO'
+                }
+            ],
+            nextTodoID: 4
+        },
+        methods: {
+            addNewTodo: function () {
+                this.todos.push({
+                    id: this.nextTodoID++,
+                    title: this.newTodoText
+                })
+                this.newTodoText = ''
+            }
+        }
+    })
+</script>
+</body>
+</html>
