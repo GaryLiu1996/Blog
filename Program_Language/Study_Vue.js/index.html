@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Vue.js E.X.</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div id="app" v-bind:class="{active : isActive}">
+    {{ message }}
+    <P>{{ revertStr1 }}</P>
+    <P>{{ revertStr() }}</P>
+    <!--    <button @click="x">click here</button>-->
+</div>
+<ul id="ex-1">
+    <li v-for="(value, name) in items" :key="items.msg">
+        <!--        {{item.msg}}-->
+        {{value}} - {{name}}
+    </li>
+</ul>
+<div v-for="n in 10">{{n}}</div>
+
+
+<script>
+    // import getGlobal from 'system.global'
+    const ex_1 = new Vue({
+        el: '#ex-1',
+        data: {
+            items: {msg: 'Foo', msg2: 'Bar'}
+        }
+    })
+    const app = new Vue({
+        el: '#app',
+        data: {
+            isActive: false,
+            message: 'Hello Vue!'
+        },
+        computed: {
+            revertStr1: function () {
+                return Date.now()
+            },
+            // revertActive: function () {
+            //     return false
+            // }
+        },
+        methods: {
+            revertStr: function () {
+                return Date.now()
+            }
+            // x:function f() {
+            //     // const global =getGlobal()
+            //     let y= do{
+            //         let t=2
+            //         t = t*t+1
+            //     }
+            //     // console.log("---2:", global)
+            //     console.log("---3:", y)
+            // }
+        }
+    })
+</script>
+</body>
+</html>
