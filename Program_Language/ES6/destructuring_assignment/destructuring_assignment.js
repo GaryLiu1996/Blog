@@ -15,3 +15,9 @@ console.log("--", t, v, b)
 let {toString: cc} = 123
 let {toString: aa} = true
 console.log("--", cc === Number.prototype.toString, aa === Boolean.prototype.toString())
+
+var map = new Map()
+map.set('first', 'hello')
+for (let [key, value] of map) {
+    console.log(key + " is " + value)
+}
