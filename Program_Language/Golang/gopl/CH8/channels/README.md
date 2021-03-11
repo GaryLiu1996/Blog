@@ -2,3 +2,5 @@
 - 发送者发送-》发送者阻塞-》直到接收者接收-》发送者唤醒(happens before)
 - happens before:在讨论并发编程时，当我们说x事件在y事件之前发生（happens before），我们并不是说x事件在时间上比y时间更早；我们要表达的意思是要保证在此之前的事件都已经完成了，例如在此之前的更新某些变量的操作已经完成，你可以放心依赖这些已完成的事件了。
 - gopl.io/ch8/netcat3
+- 单向channels不能转换为双向channels 反之可以。
+- 并发循环： 易并行问题-embarrassingly parallel

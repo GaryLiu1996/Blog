@@ -1,0 +1,6 @@
+- .dockerignore
+- Dockerfile
+- docker image build -t name .
+- docker image ls
+- docker container run -p 8000:3000 -it koa-demo /bin/bash
+- http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html
